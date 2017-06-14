@@ -1,0 +1,147 @@
+.container {
+    background-color: rgba(270, 270, 270, .9);
+    border: 2px double #828282;
+    border-radius: 3px;
+    box-shadow: 10px 10px 118px 0px rgba(255, 255, 255, 0.72);
+    font-family: sans-serif;
+    color: #606060;
+    font-size: 20px;
+}
+
+.container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container li {
+    padding-right: 1em;
+    text-indent: -1em;
+    margin: 10px;
+}
+
+.container>ul>li::before {
+    content: "•";
+    color: #828282;
+    font-size: 30px
+}
+
+.question {
+    margin-top: 30px;
+}
+
+
+/*Yes or No*/
+
+.choice {
+    margin: 15px 0px;
+}
+
+.choice li {
+    color: #828282;
+    display: table-cell;
+    position: relative;
+}
+
+.choice li input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+}
+
+.choice li label {
+    display: table-cell;
+    position: relative;
+    font-weight: 300;
+    font-size: 1.35em;
+    padding: 20px 20px 20px 64px;
+    margin: 10px auto;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+}
+
+.choice li .correct,
+.not-correct {
+    display: block;
+    position: absolute;
+    border: 5px double #828282;
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+    top: 10px;
+    transition: border .25s linear;
+    -webkit-transition: border .25s linear;
+    margin-top: -5px;
+}
+
+.choice li .correct::before {
+    display: block;
+    position: absolute;
+    content: 'نعم';
+    border-radius: 100%;
+    height: 15px;
+    top: 10px;
+    left: 14px;
+    font-size: 1.2em;
+    margin: auto;
+    transition: background 0.25s linear;
+    -webkit-transition: background 0.25s linear;
+}
+
+.choice li .not-correct::before {
+    display: block;
+    position: absolute;
+    content: 'لا';
+    border-radius: 100%;
+    height: 15px;
+    top: 10px;
+    left: 20px;
+    font-size: 1.5em;
+    text-align: center;
+    margin: auto;
+    transition: background 0.25s linear;
+    -webkit-transition: background 0.25s linear;
+}
+
+.selected-correct {
+    border: 5px double green !important;
+    box-shadow: 0px 0px 10px 10px lightgreen;
+    color: green;
+}
+
+.selected-not-correct {
+    border: 5px double red;
+    box-shadow: 0px 0px 10px 10px lightcoral;
+    color: red;
+}
+
+.no-send {
+    text-align: center;
+    font-size: 1.2em;
+    background-color: white;
+    width: 50%;
+    margin: 10px auto;
+    border: 5px double #828282;
+    color: #606060;
+}
+
+.send {
+    font-family: sans-serif;
+    position: relative;
+    border-radius: 80%;
+    height: 54px;
+    top: 15px;
+    width: 70px;
+    font-size: 1.2em;
+    margin: auto;
+    border: 5px double #828282;
+    color: #606060;
+    text-align: center;
+    background-color: white;
+    padding-top: 27px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}

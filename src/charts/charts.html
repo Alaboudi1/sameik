@@ -1,0 +1,26 @@
+<template>
+
+    <div show.bind="chart">
+        <canvas ref="resultChart" class="resultChart"></canvas>
+
+        <div class='${userAnswer}'>
+            إجابتك كانت: ${questionResult.userAnswer}
+            <span class="unique" if.bind="majority != questionResult.userAnswer && majority != 'متساوية' ">
+             ⭐
+        </span>
+        </div>
+        <div class='${communityAnswer}'>
+            الأغلبية كانت : ${majority}
+        </div>
+    </div>
+    
+    <span if.bind="!chart">
+        <div  class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+        <div class="thinking">
+                جاري تحليل البيانات 🤔
+        </div>
+    </span>
+</template>

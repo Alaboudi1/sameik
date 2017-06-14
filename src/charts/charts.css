@@ -1,0 +1,47 @@
+.resultChart {
+    will-change: auto;
+    width: 150px !important;
+    height: 150px !important;
+    margin: 10px auto;
+    display: inline-block;
+}
+
+.unique {
+    float: left;
+}
+
+.no {
+    color: white;
+    background-color: rgba(255, 99, 132, .7);
+    border-bottom: 1px solid white;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-right: 10px;
+}
+
+.yes {
+    color: white;
+    background-color: rgba(75, 192, 192, .7);
+    border-bottom: 1px solid white;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-right: 10px;
+}
+
+.equal {
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-right: 10px;
+    background: linear-gradient(to left,  rgba(75, 192, 192, .7) 0%,  rgba(75, 192, 192, .7) 50%, rgba(255, 99, 132, .7) 50%, rgba(255, 99, 132, .7) 100%);
+    color: white;
+}
+.resultChart .thinking {
+    text-align: center;
+    margin-bottom: 50px;
+}
+@media screen and (min-width: 750px) {
+    .resultChart {
+        height: 200px !important;
+        width: 200px !important;
+    }
+}

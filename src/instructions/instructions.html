@@ -1,0 +1,41 @@
+<template>
+  <section class="au-animate">
+    <div class="instructions">
+      <div class="introduction">
+        <h1>ماهو موقع سمـيك؟</h1>
+        هو موقع رائع يقوم بعمل مقارنة بين الأشخاص الذين يحملون نفس الأسم. بمعنى لو أسمك نورة، نقوم بسؤلك عده أسئلة بسيطو ونقارن إجاباتك
+        بالأشخاص الذين يحملون نفس أسمك بطريقة سريه تحفظ لك خصوصيتك.
+      </div>
+      <div class="preName">
+        <h1> الأسماء المدخلة سابقاً: </h1>
+        <ul>
+          <li repeat.for="previous of previousSurveys">
+            <a href='#' click.delegate="displayResult($index)"> ${previous.userInfo.name}</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h5> ✍ يجب عليك ادخال اسمك بشكل صحيح ومن غير أي مسافات لتضمن نتائج أفضل. </h5>
+        <h1>ماهو اسمك؟</h1>
+
+        <input type="text" value.bind="localSurvey.userInfo.name" keyup.trigger="isInPreviousSurveys()" />
+      </div>
+      <div>
+        <h1>ماهو جنسك؟</h1>
+        <ul class="gender">
+          <li>
+            <label for="f-option" click.delegate="setGender('ذكر')"></label>
+
+            <div class="male gender-${localSurvey.userInfo.gender === 'ذكر'? 'selected-male' :''}"></div>
+          </li>
+          <li>
+            <label for="s-option" click.delegate="setGender('أنثى')"></label>
+            <div class="female gender-${localSurvey.userInfo.gender === 'أنثى'? 'selected-female' :''}"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div if.bind="localSurvey.userInfo.name && localSurvey.userInfo.gender && !foundInPreviousSurveys" class="submit" click.delegate="start()">ابدأ</div>
+    <div if.bind="!localSurvey.userInfo.name || !localSurvey.userInfo.gender || foundInPreviousSurveys" class="no-submit">${message}</div>
+  </section>
+</template>

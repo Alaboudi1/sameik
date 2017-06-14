@@ -1,0 +1,26 @@
+<template>
+  <section class="au-animate">
+    <div class="container">
+      <h5> ✍ أجب عن العشر أسئلة التالية بكل صراحة لتضمن نتائج مقارنة دقيقة. </h5>
+      <hr>
+      <ul>
+        <li repeat.for="question of localSurvey.questions" class="au-stagger" class="question">
+          ${question.questionText}
+          <ul class="choice">
+            <li>
+              <label for="f-option" click.delegate="choose('نعم',$index)"></label>
+              <div class="correct ${question.userAnswer === 'نعم' ? 'selected-correct' : '' }"></div>
+            </li>
+            <li>
+              <label for="s-option" click.delegate="choose('لا',$index)"></label>
+              <div class="not-correct ${question.userAnswer === 'لا' ? 'selected-not-correct':'' }"></div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div if.bind="done" class="send" click.delegate="send()">أرسل</div>
+    <div if.bind="!done" class="no-send">الرجاء الإجابة على جميع الأسئلة!</div>
+
+  </section>
+</template>

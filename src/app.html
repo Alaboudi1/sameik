@@ -1,0 +1,8 @@
+<template>
+    <require from='survey/survey'></require>
+    <require from='instructions/instructions'></require>
+    <require from='result/result'></require>
+    <section class="au-animate">
+        <compose view-model.bind="currentPage" model.bind="{localSurvey, sender}" containerless></compose>
+    </section>
+</template>

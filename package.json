@@ -1,0 +1,43 @@
+{
+  "name": "fun-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --inline",
+    "clean": "git push origin --delete gh-pages",
+    "deploy": "git subtree push --prefix dist origin gh-pages && firebase deploy"
+  },
+  "devDependencies": {
+    "@types/firebase": "^2.4.31",
+    "aurelia-webpack-plugin": "^2.0.0-rc.1",
+    "awesome-typescript-loader": "^3.1.2",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "compression-webpack-plugin": "^0.4.0",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.27.3",
+    "file-loader": "^0.10.1",
+    "html-loader": "^0.4.5",
+    "offline-plugin": "^4.8.1",
+    "style-loader": "^0.16.0",
+    "tslib": "^1.7.1",
+    "typescript": "^2.4.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.6.1",
+    "webpack-bundle-analyzer": "^2.8.2",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {
+    "aurelia-animator-css": "^1.0.2",
+    "aurelia-bootstrapper": "^2.1.1",
+    "chart.js": "^2.6.0",
+    "firebase": "^3.9.0"
+  },
+  "author": "Abdulaziz",
+  "license": "MIT"
+}

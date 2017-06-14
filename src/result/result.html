@@ -1,0 +1,47 @@
+<template>
+    <section class="au-animate">
+        <div class="result">
+            <div>
+                <h1> النتائج: </h1>
+                في هذه الصفحة نقوم بمقارنة إجاباتك بإجابات الأشخاص الذين يحملون نفس اسمك '${localSurvey.userInfo.name}'. إجاباتك التي تحمل
+                علامة ⭐ تعني أنك أجبت بإجابة مميزة لأغلب إجابات من يحملون نفس إسمك، مما يجعلك مميزاً😎.
+            </div>
+            <hr>
+            <ul>
+                <li repeat.for="question of localSurvey.questions">
+                    ${question.questionText}
+                    <compose if.bind="localSurvey.CommunityAnsweersSynced" view-model="../charts/charts" model.bind="{question, $index}" containerless></compose>
+                    <span if.bind="!localSurvey.CommunityAnsweersSynced">
+                    <div  class="spinner">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                    <div class="thinking">
+                            جاري تحليل البيانات 🤔
+                    </div>
+                    </span>
+                </li>
+            </ul>
+
+            <div if.bind="localSurvey.numberOfuniqueAnswers >= 0" class="message">
+                <h1> عدد الإجابات المميزة لديك
+                    <br> ⭐${localSurvey.numberOfuniqueAnswers} /10⭐ </h1>
+                <div>
+                    ${resultMessage}
+                </div>
+                <div class="share">
+                  <h1>  شارك موقع سميك مع أصدقائك والأشخاص الذين يحملون نفس اسمك عبر: <h1>
+                </div>
+                <div class="share">
+                    <a class="social" href.bind="twitterUrl">
+                <img alt="تويتر"src="../../twitter.png">
+                    </a>
+                    <a class= "social" href.bind="whatsAppUrl" data-action="share/whatsapp/share">
+                    <img alt="واتس اب" src="../../whatsapp.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="newName" click.delegate="newName()">أدخل اسم اخر</div>
+    </section>
+</template>
